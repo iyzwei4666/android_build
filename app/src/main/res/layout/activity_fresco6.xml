@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".commom.fresco.FrescoActivity">
+
+    <include layout="@layout/title_bar"/>
+
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv_fresco_crop"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:background="@android:color/black"
+        fresco:placeholderImage="@drawable/google" />
+
+    <Button
+        android:id="@+id/bt_fresco6_bt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="先显示低分辨了的图,再显示高分辨率的图" />
+    <Button
+        android:id="@+id/bt_fresco6_local"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地缩略图预览" />
+    <Button
+        android:id="@+id/bt_fresco6_reuse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地图片复用" />
+
+
+</LinearLayout>

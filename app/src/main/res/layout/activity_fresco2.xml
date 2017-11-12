@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"></include>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv_fresco1_crop"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/black"
+        fresco:placeholderImage="@drawable/atguigu_logo" />
+
+    <TextView
+        android:id="@+id/tv_fresco1_explain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_fresco1_1center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="1.center" />
+
+            <Button
+                android:id="@+id/bt_fresco1_2centercrop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="2.centerCrop" />
+
+            <Button
+                android:id="@+id/bt_fresco1_3focuscrop"
+                android:layout_width="match_parent"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:text="3.focuscrop" />
+
+            <Button
+                android:id="@+id/bt_fresco1_4centerinside"
+                android:layout_width="match_parent"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:text="4.centerInside" />
+
+            <Button
+                android:id="@+id/bt_fresco1_5fitcenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="5.fitCenter" />
+
+            <Button
+                android:id="@+id/bt_fresco1_6fitstart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="6.fitstart" />
+
+            <Button
+                android:id="@+id/bt_fresco1_7fitend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="7.fitEnd" />
+
+            <Button
+                android:id="@+id/bt_fresco1_8fitxy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="8.fitxy" />
+
+            <Button
+                android:id="@+id/bt_fresco1_9none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="9.none" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

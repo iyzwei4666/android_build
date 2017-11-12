@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".commom.xtuils3.XUtilsActivity">
+
+
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_xtuils_inject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注解模块" />
+
+            <Button
+                android:id="@+id/bt_xutils_net"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="联网模块" />
+
+            <Button
+                android:id="@+id/bt_xutils_sing_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单张图片" />
+
+            <Button
+                android:id="@+id/bt_xutils_list_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="列表图片" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ListView
+                android:visibility="gone"
+                android:id="@+id/lv_xutis3_img_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+            <ImageView
+                android:id="@+id/iv_xutils_single"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete" />
+
+
+            <TextView
+                android:id="@+id/tv_xutils_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="xutils info" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".commom.fresco.FrescoActivity">
+
+    <include layout="@layout/title_bar"/>
+
+
+
+    <Button
+        android:id="@+id/bt_fresco_id1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1.带进度条的图片" />
+
+    <Button
+        android:id="@+id/bt_fresco_id2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2.图片的不同剪裁" />
+
+    <Button
+        android:id="@+id/bt_fresco_id3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3.图形和圆角图片" />
+
+    <Button
+        android:id="@+id/bt_fresco_id4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4.渐进式展示图片" />
+
+    <Button
+        android:id="@+id/bt_fresco_id5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5.Gif动画图片" />
+
+    <Button
+        android:id="@+id/bt_fresco_id6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="6.多图请求及图片复用" />
+
+    <Button
+        android:id="@+id/bt_fresco_id7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="7.图片加载监听" />
+
+    <Button
+        android:id="@+id/bt_fresco_id8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="8.图片修改和旋转" />
+
+    <Button
+        android:id="@+id/bt_fresco_id9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="9.修改图片" />
+
+    <Button
+        android:id="@+id/bt_fresco_id10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10.动态展示" />
+
+
+</LinearLayout>

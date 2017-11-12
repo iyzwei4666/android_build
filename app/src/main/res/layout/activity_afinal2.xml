@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".commom.afinal.AfinalActivity">
+
+    <include layout="@layout/title_bar" />
+
+    <Button
+        android:id="@+id/bt_afinal_text"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Afinal文本请求" />
+
+    <Button
+        android:id="@+id/bt_afinal_img"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Afinal图片请求" />
+
+
+    <Button
+        android:id="@+id/bt_afinal_file_upload"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Afinal文件上传" />
+
+    <Button
+        android:id="@+id/bt_afinal_text_file_download"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Afinal文件下载" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:padding="5dp"
+        android:text="结果显示" />
+        <ImageView
+            android:id="@+id/iv_afinal_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_afinal_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="info" />
+
+
+    </ScrollView>
+</LinearLayout>

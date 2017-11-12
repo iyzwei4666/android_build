@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".commom.banner.BannerMainActivity">
+
+    <include layout="@layout/title_bar" />
+
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+
+    <TextView
+        android:background="@color/greenPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+    <TableLayout
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_height="wrap_content"
+        >
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="动画选择器："
+                android:textColor="@color/main_color"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_banner_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/anim" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="样式选择器："
+                android:textColor="@color/main_color"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_banner_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/style" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="指示器位置："
+                android:textColor="@color/main_color"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_banner_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/indicator" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/bt_banner_custom"
+
+        android:text="自定义样式"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bt_banner_local"
+
+        android:text="加载本地图片"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_banner_viewpager"
+
+        android:text="自定义ViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

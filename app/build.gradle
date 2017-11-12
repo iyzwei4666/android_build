@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.example.chen.atguigucode"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(':okhttputils')
+    compile project(':xutils')
+    compile files('lib/gson-2.8.1.jar')
+    compile files('lib/fastjson-1.1.61.android.jar')
+    compile files('lib/afinal_0.5.1_bin.jar')
+    compile files('lib/volley.jar')
+    compile files('lib/eventbus-3.0.0.jar')
+    compile files('lib/picasso-2.5.2.jar')
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.facebook.fresco:webpsupport:1.5.0'
+    // compile files('lib/android-async-http-master.jar')
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.facebook.fresco:webpsupport:1.5.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'jp.wasabeef:picasso-transformations:2.1.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'com.facebook.fresco:animated-gif:1.5.0'
+    compile 'com.facebook.fresco:animated-webp:1.5.0'
+    compile 'com.facebook.fresco:imagepipeline-okhttp3:1.5.0'
+    compile 'com.linsea:universalvideoview:1.1.0@aar'
+    compile 'fm.jiecao:jiecaovideoplayer:5.8.1'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.github.iwgang:countdownview:2.1.6'
+    compile 'com.github.iwgang:familiarrecyclerview:1.3.0'
+    compile 'cn.qqtheme.framework:ColorPicker:1.1.3'
+    compile 'com.linsea:opendanmaku:1.0.0@aar'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}
+repositories {
+    jcenter()
+}
+
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+

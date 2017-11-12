@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.chen.atguigucode">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".AtguiguAppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/atguigu_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".commom.okhttp.OkHttpActivity" />
+        <activity android:name=".commom.okhttp.OkHttpUtilsActivity" />
+        <activity android:name=".commom.okhttp.ImageListActivity" />
+        <activity android:name=".commom.xtuils3.XUtilsActivity" />
+        <activity android:name=".commom.xtuils3.net.XUtils3NetActivity" />
+        <activity android:name=".commom.jsonnative.NativitJsonActivity" />
+        <activity android:name=".commom.jsonnative.GsonParseActivity" />
+        <activity android:name=".commom.jsonnative.FastJsonActivity" />
+        <activity android:name=".commom.afinal.AfinalActivity" />
+        <activity android:name=".commom.volley.VolleyActivity" />
+        <activity android:name=".commom.envetbus.EventBusActivity" />
+        <activity android:name=".commom.envetbus.EnvenBusSendActivity" />
+        <activity android:name=".commom.butterknife.ButterKnifeActivity" />
+        <activity android:name=".commom.imageloader.ImageLoaderActivity" />
+        <activity android:name=".commom.picaso.PicasoActivity" />
+        <activity android:name=".commom.picaso.PicasonListviewActivity" />
+        <activity android:name=".commom.picaso.PicasoTranformationActivity" />
+        <activity android:name=".commom.recycleview.RecycleViewActivity" />
+        <activity android:name=".commom.glide.GlideActivity" />
+        <activity android:name=".commom.glide.GlideRecycleViewActivity" />
+        <activity android:name=".commom.glide.GlideTransformActivity" />
+        <activity android:name=".commom.fresco.FrescoActivity" />
+        <activity android:name=".commom.fresco.activity.Fresco1Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco2Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco3Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco4Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco5Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco6Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco7Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco8Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco9Activity" />
+        <activity android:name=".commom.fresco.activity.Fresco10Activity" />
+        <activity android:name=".commom.universalvideoview.UniversalVideoViewActivity" />
+        <activity android:name=".commom.jiecao.JieCaoMainActivity" />
+        <activity
+            android:name=".commom.jiecao.PlayDirectlyActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.ListViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.ListViewNormalActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.ListViewViewpagerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.ListViewMultiHolderActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.ApiActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.UISmallChangeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.UIBigChangeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.RecyclerViewNormalActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.AutoTinyActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.AutoTinyListActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.AutoTinyNormalActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.WebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".commom.jiecao.OrientationActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="landscape" />
+        <activity android:name=".commom.banner.BannerMainActivity" />
+        <activity android:name=".commom.banner.demo.BannerLocalActivity" />
+        <activity android:name=".commom.banner.demo.CustomBannerActivity" />
+        <activity android:name=".commom.banner.demo.CustomViewPagerActivity" />
+        <activity android:name=".commom.countdownview.CountdownViewMainActivity" />
+        <activity android:name=".commom.countdownview.activity.DynamicShowActivity" />
+        <activity android:name=".commom.countdownview.activity.ListViewActivity" />
+        <activity android:name=".commom.countdownview.activity.RecyclerViewActivity" />
+        <activity
+            android:name=".commom.opendanmaku.OpenDanmakuMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".commom.tablelayout.TablelayoutMainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity android:name=".commom.asynchttp.AsyncHttpActivity" />
+        <activity android:name=".other.downloadservice.DownloadServiceMainActivity"></activity>
+        <service android:name=".other.downloadservice.DownloadService"
+
+            android:enabled="true"
+            android:exported="true"
+            />
+    </application>
+
+</manifest>
