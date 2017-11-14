@@ -23,7 +23,7 @@ public class HomeActivity extends FragmentActivity {
     private static final String TAG = HomeActivity.class.getSimpleName();
     private LayoutInflater layoutInflater;
     private FragmentTabHost mTabHost;
-    private final Class fragmentArray[] = {  CommonFragment.class, ThirdLibFragment.class ,CustomVFragment.class, OtherFragment.class};
+    private final Class fragmentArray[] = {  CommonFragment.class, ThirdLibFragment.class ,CustomVFragment.class, AnimationFragment.class};
     private int mTitleArray[] = {R.string.home_frame_tab , R.string.home_contact_tab, R.string.home_setting_tab , R.string.home_setting_tab};
     private int mImageViewArray[] = {R.drawable.tab_conversation, R.drawable.tab_contact, R.drawable.tab_setting ,R.drawable.tab_setting};
     private String mTextviewArray[] = {"contact", "conversation", "setting" ,"setting"};
