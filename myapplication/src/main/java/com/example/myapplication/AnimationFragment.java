@@ -12,15 +12,15 @@ import android.view.ViewGroup;
 /**
  * 设置页面
  */
-public class OtherFragment extends Fragment {
+public class AnimationFragment extends Fragment {
 
-    private static final String TAG = OtherFragment.class.getSimpleName();
+    private static final String TAG = AnimationFragment.class.getSimpleName();
     private View view;
 
 
 
 
-    public OtherFragment() {
+    public AnimationFragment() {
         // Required empty public constructor
     }
 
