@@ -1,2 +1,2 @@
-include ':app', ':okhttputils', ':xutils', ':sample_xutil3', ':sample-okhttp', ':myapplication', ':DaoExample'
+include   ':myapplication', ':DaoExample'
 
