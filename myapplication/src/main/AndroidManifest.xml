@@ -18,6 +18,7 @@
         </activity>
         <activity android:name="com.frame.greendao.NoteActivity">
         </activity>
+        <activity android:name="com.frame.objectbox.NoteActivity"/>
     </application>
 
 </manifest>

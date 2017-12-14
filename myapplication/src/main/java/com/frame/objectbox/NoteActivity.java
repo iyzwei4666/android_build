@@ -1,84 +1,68 @@
-/*
- * Copyright (C) 2011 Markus Junginger, greenrobot (http://greenrobot.de)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.frame.greendao;
+package com.frame.objectbox;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.App;
 import com.example.myapplication.R;
 
-import org.greenrobot.greendao.query.Query;
-
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class NoteActivity extends AppCompatActivity {
+import io.objectbox.Box;
+import io.objectbox.BoxStore;
+import io.objectbox.query.Query;
+
+public class NoteActivity extends Activity {
 
     private EditText editText;
     private View addNoteButton;
 
-    private NoteDao noteDao;
+    private Box<Note> notesBox;
     private Query<Note> notesQuery;
     private NotesAdapter notesAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_greendao_note);
+        setContentView(R.layout.activity_objectbox_note);
 
         setUpViews();
 
-        // get the note DAO
-        DaoSession daoSession = ((App) getApplication()).getDaoSession();
-        noteDao = daoSession.getNoteDao();
+        BoxStore boxStore = ((App) getApplication()).getBoxStore();
+        notesBox = boxStore.boxFor(Note.class);
 
-        // query all notes, sorted a-z by their text
-        notesQuery = noteDao.queryBuilder().orderAsc(NoteDao.Properties.Text).build();
+        // query all notes, sorted a-z by their text (http://greenrobot.org/objectbox/documentation/queries/)
+        notesQuery = notesBox.query().order(Note_.text).build();
         updateNotes();
     }
 
+    /** Manual trigger to re-query and update the UI. For a reactive alternative check {@link ReactiveNoteActivity}. */
     private void updateNotes() {
-        List<Note> notes = notesQuery.list();
+        List<Note> notes = notesQuery.find();
         notesAdapter.setNotes(notes);
     }
 
     protected void setUpViews() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewNotes);
-        //noinspection ConstantConditions
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ListView listView = (ListView) findViewById(R.id.listViewNotes);
+        listView.setOnItemClickListener(noteClickListener);
 
-        notesAdapter = new NotesAdapter(noteClickListener);
-        recyclerView.setAdapter(notesAdapter);
+        notesAdapter = new NotesAdapter();
+        listView.setAdapter(notesAdapter);
 
         addNoteButton = findViewById(R.id.buttonAdd);
-        //noinspection ConstantConditions
         addNoteButton.setEnabled(false);
 
         editText = (EditText) findViewById(R.id.editTextNote);
@@ -109,6 +93,7 @@ public class NoteActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+
     }
 
     public void onAddButtonClick(View view) {
@@ -119,30 +104,27 @@ public class NoteActivity extends AppCompatActivity {
         String noteText = editText.getText().toString();
         editText.setText("");
 
-        final DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
+        DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
         String comment = "Added on " + df.format(new Date());
 
         Note note = new Note();
         note.setText(noteText);
         note.setComment(comment);
         note.setDate(new Date());
-
-        noteDao.insert(note);
-        Log.d("DaoExample", "Inserted new note, ID: " + note.getId());
+        notesBox.put(note);
+//        Log.d(App.TAG, "Inserted new note, ID: " + note.getId());
 
         updateNotes();
     }
 
-    NotesAdapter.NoteClickListener noteClickListener = new NotesAdapter.NoteClickListener() {
+    OnItemClickListener noteClickListener = new OnItemClickListener() {
         @Override
-        public void onNoteClick(int position) {
-            Note note = notesAdapter.getNote(position);
-            Long noteId = note.getId();
-
-            noteDao.deleteByKey(noteId);
-            Log.d("DaoExample", "Deleted note, ID: " + noteId);
-
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Note note = notesAdapter.getItem(position);
+            notesBox.remove(note);
+//            Log.d(App.TAG, "Deleted note, ID: " + note.getId());
             updateNotes();
         }
     };
+
 }

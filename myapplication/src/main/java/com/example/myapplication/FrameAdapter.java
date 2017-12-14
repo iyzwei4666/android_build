@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -57,7 +56,7 @@ public class FrameAdapter extends RecyclerView.Adapter<FrameAdapter.NoteViewHold
     @Override
     public FrameAdapter.NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_note, parent, false);
+                .inflate(R.layout.greendao_item_note, parent, false);
         return new NoteViewHolder(view, clickListener);
     }
 

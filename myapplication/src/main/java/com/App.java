@@ -2,10 +2,15 @@ package com;
 
 import android.app.Application;
 
-import com.greendao.DaoMaster;
-import com.greendao.DaoSession;
+import com.example.myapplication.BuildConfig;
+import com.frame.greendao.DaoMaster;
+import com.frame.greendao.DaoSession;
+import com.frame.objectbox.MyObjectBox;
 
 import org.greenrobot.greendao.database.Database;
+
+import io.objectbox.BoxStore;
+import io.objectbox.android.AndroidObjectBrowser;
 
 
 public class App extends Application {
@@ -17,7 +22,17 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        createSession();
+        boxStore = MyObjectBox.builder().androidContext(App.this).build();
+        if (BuildConfig.DEBUG) {
+            new AndroidObjectBrowser(boxStore).start(this);
+        }
+    }
+    private BoxStore boxStore;
+    public BoxStore getBoxStore() {
+        return boxStore;
+    }
+    private void createSession() {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "apps-db");
         Database db = helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
