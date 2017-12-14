@@ -23,6 +23,19 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         createSession();
+        createBox();
+    }
+
+    private void createSession() {
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "apps-db");
+        Database db = helper.getWritableDb();
+        daoSession = new DaoMaster(db).newSession();
+    }
+    public DaoSession getDaoSession() {
+        return daoSession;
+    }
+
+    private void createBox() {
         boxStore = MyObjectBox.builder().androidContext(App.this).build();
         if (BuildConfig.DEBUG) {
             new AndroidObjectBrowser(boxStore).start(this);
@@ -32,13 +45,6 @@ public class App extends Application {
     public BoxStore getBoxStore() {
         return boxStore;
     }
-    private void createSession() {
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "apps-db");
-        Database db = helper.getWritableDb();
-        daoSession = new DaoMaster(db).newSession();
-    }
 
-    public DaoSession getDaoSession() {
-        return daoSession;
-    }
+
 }

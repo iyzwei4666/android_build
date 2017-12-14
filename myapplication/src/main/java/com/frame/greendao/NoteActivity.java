@@ -67,9 +67,9 @@ public class NoteActivity extends AppCompatActivity {
         List<Note> notes = notesQuery.list();
         notesAdapter.setNotes(notes);
     }
-
+    RecyclerView recyclerView;
     protected void setUpViews() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewNotes);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewNotes);
         //noinspection ConstantConditions
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -138,7 +138,7 @@ public class NoteActivity extends AppCompatActivity {
         public void onNoteClick(int position) {
             Note note = notesAdapter.getNote(position);
             Long noteId = note.getId();
-
+//            recyclerView.setItemChecked(position, true);
 //            noteDao.deleteByKey(noteId);
             Log.d("DaoExample", "Deleted note, ID: " + noteId);
 
