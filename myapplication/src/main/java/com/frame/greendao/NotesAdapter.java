@@ -1,5 +1,6 @@
 package com.frame.greendao;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,7 +27,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         public TextView text;
         public TextView comment;
 
-        public NoteViewHolder(View itemView, final NoteClickListener clickListener) {
+        public NoteViewHolder(final View itemView, final NoteClickListener clickListener) {
             super(itemView);
             text = (TextView) itemView.findViewById(R.id.textViewNoteText);
             comment = (TextView) itemView.findViewById(R.id.textViewNoteComment);
@@ -43,7 +44,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
     public NotesAdapter(NoteClickListener clickListener) {
         this.clickListener = clickListener;
-        this.dataset = new ArrayList<Note>();
+        this.dataset = new ArrayList<>();
     }
 
     public void setNotes(@NonNull List<Note> notes) {
@@ -61,12 +62,28 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
                 .inflate(R.layout.greendao_item_note, parent, false);
         return new NoteViewHolder(view, clickListener);
     }
-
+    private int selectedPosition = -1; //默认一个参数
     @Override
-    public void onBindViewHolder(NotesAdapter.NoteViewHolder holder, int position) {
+    public void onBindViewHolder(final NoteViewHolder holder,final int position) {
+        holder.itemView.setSelected(selectedPosition == position);
+        if (selectedPosition == position) {
+            holder.text.setTextColor(Color.parseColor("#ff0000"));
+            holder.comment.setTextColor(Color.parseColor("#ff0000"));
+        } else {
+            holder.text.setTextColor(Color.parseColor("#004081"));
+            holder.comment.setTextColor(Color.parseColor("#004081"));
+        }
         Note note = dataset.get(position);
         holder.text.setText(note.getText());
         holder.comment.setText(note.getComment());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListener.onNoteClick(  holder.getAdapterPosition());
+                selectedPosition = position; //选择的position赋值给参数，
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

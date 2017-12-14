@@ -49,7 +49,7 @@ public class NoteActivity extends Activity {
         updateNotes();
     }
 
-    /** Manual trigger to re-query and update the UI. For a reactive alternative check {@link ReactiveNoteActivity}. */
+    /** Manual trigger to re-query and update the UI. For a reactive alternative check {@link }. */
     private void updateNotes() {
         List<Note> notes = notesQuery.find();
         notesAdapter.setNotes(notes);
@@ -122,6 +122,7 @@ public class NoteActivity extends Activity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Note note = notesAdapter.getItem(position);
             listView.setItemChecked(position, true);
+
 //            notesBox.remove(note);
 //            Log.d(App.TAG, "Deleted note, ID: " + note.getId());
 //            updateNotes();

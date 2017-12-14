@@ -75,6 +75,14 @@ public class NoteActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         notesAdapter = new NotesAdapter(noteClickListener);
+//        String[] strs = new String[ ]{"asd","wq","12"};
+//        CheckStateAdapter sss = new CheckStateAdapter(strs , getBaseContext());
+//        sss.setOnItemClickListener(new CheckStateAdapter.OnItemClickListener() {
+//            @Override
+//            public void OnItemClick(View view, CheckStateAdapter.StateHolder holder, int position) {
+//
+//            }
+//        });
         recyclerView.setAdapter(notesAdapter);
 
         addNoteButton = findViewById(R.id.buttonAdd);
@@ -138,7 +146,7 @@ public class NoteActivity extends AppCompatActivity {
         public void onNoteClick(int position) {
             Note note = notesAdapter.getNote(position);
             Long noteId = note.getId();
-//            recyclerView.setItemChecked(position, true);
+//            recyclerView.setchoc(position, true);
 //            noteDao.deleteByKey(noteId);
             Log.d("DaoExample", "Deleted note, ID: " + noteId);
 
