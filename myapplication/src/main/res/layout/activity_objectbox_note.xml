@@ -38,6 +38,7 @@
         android:id="@+id/listViewNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
         android:layout_below="@+id/textViewNoteInstructions"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="4dp"

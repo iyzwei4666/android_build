@@ -139,10 +139,10 @@ public class NoteActivity extends AppCompatActivity {
             Note note = notesAdapter.getNote(position);
             Long noteId = note.getId();
 
-            noteDao.deleteByKey(noteId);
+//            noteDao.deleteByKey(noteId);
             Log.d("DaoExample", "Deleted note, ID: " + noteId);
 
-            updateNotes();
+//            updateNotes();
         }
     };
 }

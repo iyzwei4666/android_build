@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/list_item_selector"
+              android:orientation="vertical"
+              android:padding="16dp">
 
     <TextView
         android:id="@+id/textViewNoteText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@drawable/list_item_textcolor"
         android:textSize="14sp"
-        tools:text="Note Text" />
+        tools:text="Note Text"/>
 
     <TextView
         android:id="@+id/textViewNoteComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@drawable/list_item_textcolor"
         android:textSize="12sp"
-        tools:text="Note Comment" />
+        tools:text="Note Comment"/>
 
 </LinearLayout>

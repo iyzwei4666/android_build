@@ -54,9 +54,9 @@ public class NoteActivity extends Activity {
         List<Note> notes = notesQuery.find();
         notesAdapter.setNotes(notes);
     }
-
+    ListView listView;
     protected void setUpViews() {
-        ListView listView = (ListView) findViewById(R.id.listViewNotes);
+        listView = (ListView) findViewById(R.id.listViewNotes);
         listView.setOnItemClickListener(noteClickListener);
 
         notesAdapter = new NotesAdapter();
@@ -121,9 +121,10 @@ public class NoteActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Note note = notesAdapter.getItem(position);
-            notesBox.remove(note);
+            listView.setItemChecked(position, true);
+//            notesBox.remove(note);
 //            Log.d(App.TAG, "Deleted note, ID: " + note.getId());
-            updateNotes();
+//            updateNotes();
         }
     };
 
