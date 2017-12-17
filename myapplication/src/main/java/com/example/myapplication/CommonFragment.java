@@ -64,6 +64,7 @@ public class CommonFragment extends Fragment implements  View.OnClickListener  {
         Intent intent = new Intent();
         intent.setClassName(getActivity() , datas.get(position).path);
         startActivity(intent);
+        EventBus.getDefault().post(new MessageEvent());
         }
     };
 

@@ -39,7 +39,23 @@ public class HomeActivity extends FragmentActivity {
 
 
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
 
+        /* Do something */
+
+    };
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
     private void initView() {
         layoutInflater = LayoutInflater.from(this);
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
