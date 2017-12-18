@@ -15,8 +15,8 @@
  */
 package com.frame.greendao;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -38,7 +38,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class NoteActivity extends AppCompatActivity {
+public class NoteActivity extends Activity {
 
     private EditText editText;
     private View addNoteButton;

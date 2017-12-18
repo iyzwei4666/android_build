@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
     <!-- home activity -->
-    <string name="home_frame_tab">框架</string>
-    <string name="home_setting_tab">设置</string>
-    <string name="home_contact_tab">联系</string>
+    <string name="home_frame">框架</string>
+    <string name="home_view">view</string>
+    <string name="home_anim">动画</string>
+    <string name="home_libs">外lib</string>
+    <string name="title_activity_base">BaseActivity</string>
 </resources>

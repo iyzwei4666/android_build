@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.events.MessageEvent;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +22,14 @@ import java.util.List;
 /**
  * Tab页主界面
  */
-public class HomeActivity extends FragmentActivity {
+public class HomeActivity extends BaseActivity {
     private static final String TAG = HomeActivity.class.getSimpleName();
     private LayoutInflater layoutInflater;
     private FragmentTabHost mTabHost;
     private final Class fragmentArray[] = {  CommonFragment.class, ThirdLibFragment.class ,CustomVFragment.class, AnimationFragment.class};
-    private int mTitleArray[] = {R.string.home_frame_tab , R.string.home_contact_tab, R.string.home_setting_tab , R.string.home_setting_tab};
+    private int mTitleArray[] = {R.string.home_frame , R.string.home_libs, R.string.home_view , R.string.home_anim};
     private int mImageViewArray[] = {R.drawable.tab_conversation, R.drawable.tab_contact, R.drawable.tab_setting ,R.drawable.tab_setting};
-    private String mTextviewArray[] = {"contact", "conversation", "setting" ,"setting"};
+    private String mTextviewArray[] = {"frame", "libs", "view" ,"anim"};
 
 
 
@@ -39,23 +42,13 @@ public class HomeActivity extends FragmentActivity {
 
 
     }
-    @Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onMessageEvent(MessageEvent event) {
-
+        System.out.print("threadMode = ThreadMode.BACKGROUND)");
         /* Do something */
 
     };
-    @Override
-    public void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
-    }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        EventBus.getDefault().unregister(this);
-    }
     private void initView() {
         layoutInflater = LayoutInflater.from(this);
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
