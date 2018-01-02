@@ -27,6 +27,7 @@ public class CommonFragment extends Fragment implements  View.OnClickListener  {
     private List<ActivityBean> datas = new ArrayList<ActivityBean>(){{
         add(new ActivityBean("greendao","com.frame.greendao.NoteActivity"));
         add(new ActivityBean("objbox","com.frame.objectbox.NoteActivity"));
+        add(new ActivityBean("mytoast","com.view.mytoast.MyToastActivity"));
     }
     };
     private FrameAdapter notesAdapter;

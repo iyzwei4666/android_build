@@ -13,11 +13,17 @@
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name="com.frame.greendao.NoteActivity"/>
         <activity android:name="com.frame.objectbox.NoteActivity"/>
+        <activity
+            android:name="com.view.mytoast.MyToastActivity"
+            android:label="@string/title_activity_my_toast"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
