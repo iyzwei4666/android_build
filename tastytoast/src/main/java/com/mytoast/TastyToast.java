@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sdsmdg.tastytoast.R;
+import com.tastytoast.R;
+
 
 /**
  * Created by rahul on 28/7/16.
