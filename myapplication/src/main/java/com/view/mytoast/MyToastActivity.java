@@ -25,8 +25,8 @@ public class MyToastActivity extends AppCompatActivity {
     }
 
     public void showWarningToast(View view) {
-        TastyToast.makeText(getApplicationContext(), "Are you sure ?", TastyToast.LENGTH_LONG,
-                TastyToast.WARNING);
+//        TastyToast.makeText(getApplicationContext(), "Are you sure ?", TastyToast.LENGTH_LONG,
+//                TastyToast.WARNING);
     }
 
     public void showErrorToast(View view) {
