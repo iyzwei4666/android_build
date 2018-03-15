@@ -43,8 +43,10 @@ public class HomeActivity extends BaseActivity {
 
     }
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
+//    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MessageEvent event) {
         System.out.print("threadMode = ThreadMode.BACKGROUND)");
+//        TastyToast.makeText(getApplicationContext(), "收到Eventbus!", TastyToast.LENGTH_LONG,TastyToast.SUCCESS);
         /* Do something */
 
     };

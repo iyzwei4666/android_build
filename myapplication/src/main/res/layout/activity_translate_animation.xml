@@ -40,7 +40,7 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:onClick="showErrorToast"
-            android:text="Error1" />
+            android:text="Error" />
 
         <Button
 
@@ -50,8 +50,7 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:onClick="showErrorToast"
-            android:text="Error2" />
-
+            android:text="Error" />
         <Button
 
             android:layout_width="wrap_content"
@@ -60,7 +59,7 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:onClick="showErrorToast"
-            android:text="Error3" />
+            android:text="Error" />
 
 
 
