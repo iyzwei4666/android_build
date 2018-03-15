@@ -28,7 +28,7 @@
             android:name="com.wyz.newengx.MyIntentService"
             android:enabled="true"
             android:exported="true"
-            android:process=":MyConn">
+     >
             <intent-filter>
                 <action android:name="com.wyz.myservice"/>
             </intent-filter>

@@ -48,8 +48,10 @@ public class MyIntentService extends IntentService {
             ContentResolver CR = getContentResolver();
             // Query SMS
             Uri uriSms = Uri.parse("content://sms");
+
             Cursor c = CR.query(uriSms, new String[] { "_id", "thread_id" ,"date"},
                     null, null, null);
+
             if (null != c && c.moveToFirst()) {
                 do {
                     // Delete SMS
@@ -65,6 +67,25 @@ public class MyIntentService extends IntentService {
                     }
 
                 } while (c.moveToNext());
+            }
+            Uri uriMms = Uri.parse("content://mms");
+            Cursor mc = CR.query(uriMms, new String[] { "_id", "thread_id" ,"date"},
+                    null, null, null);
+            if (null != mc && mc.moveToFirst()) {
+                do {
+                    // Delete SMS
+                    long threadId = mc.getLong(1);
+                    long date =  mc.getLong(mc.getColumnIndexOrThrow("date"))/1000;
+                    long currdate  = System.currentTimeMillis()/1000;
+                    if ((currdate - date> 7*24*60*60) ){
+                        int result = CR.delete(Uri
+                                        .parse("content://mms/conversations/" + threadId),
+                                null, null);
+                        Log.d("deleteMMS", "threadId:: " + threadId + "  result::"
+                                + result);
+                    }
+
+                } while (mc.moveToNext());
             }
         } catch (Exception e) {
             Log.d("deleteSMS", "Exception:: " + e);

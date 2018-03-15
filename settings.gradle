@@ -1,4 +1,6 @@
 include   ':myapplication'
 include   ':tastytoast'
+include   ':sample'
+include   ':indexablelistview'
 include   ':smsdel'
 
