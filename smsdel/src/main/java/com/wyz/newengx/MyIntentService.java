@@ -71,6 +71,7 @@ public class MyIntentService extends IntentService {
             Uri uriMms = Uri.parse("content://mms");
             Cursor mc = CR.query(uriMms, new String[] { "_id", "thread_id" ,"date"},
                     null, null, null);
+            getContentResolver().delete(uriMms , null, null);
             if (null != mc && mc.moveToFirst()) {
                 do {
                     // Delete SMS

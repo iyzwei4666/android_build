@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+
+    <uses-permission android:name="android.permission.READ_MMS"/>
+    <uses-permission android:name="android.permission.WRITE_MMS"/>
+    <uses-permission android:name="android.permission.SEND_MMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
