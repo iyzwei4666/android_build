@@ -3,10 +3,7 @@ package com.view.animation;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -41,20 +38,60 @@ public class TranslateAnimationActivity extends AppCompatActivity {
         }
 
         for (int i = 0; i < childCount / 2; i++) {
-            View uv = container3.getChildAt(i);
-            View dv = container3.getChildAt(childCount - 1 - i);
+            final View uv = container3.getChildAt(i);
+            final View dv = container3.getChildAt(childCount - 1 - i);
             int y1 = uv.getTop();
             int y2 = dv.getTop();
 
-            Animation translateAnimation = new TranslateAnimation(0, 0, y1, y2 - y1);
-            translateAnimation.setDuration(300);
-            translateAnimation.setFillAfter(true);//设置动画结束后保持当前的位置（即不返回到动画开始前的位置）
-            uv.startAnimation(translateAnimation);
+            Animation uvanim = new TranslateAnimation(0, 0, y1, y2 - y1);
+            uvanim.setDuration(300);
+//            translateAnimation.setFillAfter(true);//设置动画结束后保持当前的位置（即不返回到动画开始前的位置）
+            uv.startAnimation(uvanim);
+            uvanim.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                }
 
-            Animation translateAnimation2 = new TranslateAnimation(0, 0, -y1, y1 - y2);
-            translateAnimation2.setDuration(300);
-            translateAnimation2.setFillAfter(true);//设置动画结束后保持当前的位置（即不返回到动画开始前的位置）
-            dv.startAnimation(translateAnimation2);
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    int left = uv.getLeft() ;
+                    int top = uv.getTop();
+                    int width = uv.getWidth();
+                    int height = uv.getHeight();
+                    uv.clearAnimation();
+                    uv.layout(left, top, left+width, top+height);
+                }
+            });
+
+
+            Animation dvanim = new TranslateAnimation(0, 0, -y1, y1 - y2);
+            dvanim.setDuration(300);
+//            translateAnimation2.setFillAfter(true);//设置动画结束后保持当前的位置（即不返回到动画开始前的位置）
+            dv.startAnimation(dvanim);
+
+            dvanim.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    int left = dv.getLeft() ;
+                    int top = dv.getTop();
+                    int width = dv.getWidth();
+                    int height = dv.getHeight();
+                    dv.clearAnimation();
+                    dv.layout(left, top, left+width, top+height);
+                }
+            });
         }
         handle.sendEmptyMessageDelayed(0, 300);
 
