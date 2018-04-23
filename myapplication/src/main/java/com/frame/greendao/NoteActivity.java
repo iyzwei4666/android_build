@@ -72,7 +72,10 @@ public class NoteActivity extends Activity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewNotes);
         //noinspection ConstantConditions
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
 
         notesAdapter = new NotesAdapter(noteClickListener);
 //        String[] strs = new String[ ]{"asd","wq","12"};
