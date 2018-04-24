@@ -7,61 +7,32 @@
     tools:context="com.view.animation.TranslateAnimationActivity">
 
     <LinearLayout
+
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:onClick="showSuccessToast"
-            android:text="Download" />
+        <include
+            android:id="@+id/layout1"
+            layout="@layout/objectbox_item_note" />
 
-        <Button
+        <include
+            android:id="@+id/layout2"
+            layout="@layout/objectbox_item_note" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:onClick="showWarningToast"
-            android:text="Warning" />
+        <include
+            android:id="@+id/layout3"
+            layout="@layout/objectbox_item_note" />
 
-        <Button
+        <include
+            android:id="@+id/layout4"
+            layout="@layout/objectbox_item_note" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:onClick="showErrorToast"
-            android:text="Error" />
-
-        <Button
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:onClick="showErrorToast"
-            android:text="Error" />
-        <Button
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:onClick="showErrorToast"
-            android:text="Error" />
-
-
+        <include
+            android:id="@+id/layout5"
+            layout="@layout/objectbox_item_note" />
 
 
     </LinearLayout>

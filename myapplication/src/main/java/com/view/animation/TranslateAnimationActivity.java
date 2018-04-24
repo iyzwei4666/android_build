@@ -2,7 +2,6 @@ package com.view.animation;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -10,6 +9,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 
 import com.example.myapplication.R;
+import com.mytoast.TastyToast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,24 +22,28 @@ public class TranslateAnimationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate_animation);
-        container3 = (LinearLayout) findViewById(R.id.linearLayout);
-        list = new ArrayList<>();
+        layoutContainer = (LinearLayout) findViewById(R.id.linearLayout);
+
     }
 
-    LinearLayout container3;
-    List<View> list;
-
+    private LinearLayout layoutContainer;
     public void showAnim(View view) {
-        list.clear();
-        int childCount = container3.getChildCount();
+        final List<View>  list = new ArrayList<>();
+        int childCount = layoutContainer.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View uv = container3.getChildAt(i);
+            View uv = layoutContainer.getChildAt(i);
+            uv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TastyToast.makeText(getApplicationContext(), "Download Successful !"+v.getId(), TastyToast.LENGTH_LONG,  TastyToast.SUCCESS);
+                }
+            });
             list.add(uv);
         }
 
         for (int i = 0; i < childCount / 2; i++) {
-            final View uv = container3.getChildAt(i);
-            final View dv = container3.getChildAt(childCount - 1 - i);
+            final View uv = layoutContainer.getChildAt(i);
+            final View dv = layoutContainer.getChildAt(childCount - 1 - i);
             int y1 = uv.getTop();
             int y2 = dv.getTop();
 
@@ -93,19 +97,16 @@ public class TranslateAnimationActivity extends AppCompatActivity {
                 }
             });
         }
-        handle.sendEmptyMessageDelayed(0, 300);
-
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                layoutContainer.removeAllViews();
+                Collections.reverse(list);
+                for (View v : list  ) {
+                    layoutContainer.addView(v);
+                }
+            }
+        }, 300 );
     }
 
-    Handler handle = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-
-            container3.removeAllViews();
-            Collections.reverse(list);
-            for (View v : list  ) {
-                container3.addView(v);
-            }
-        }
-    };
 }
