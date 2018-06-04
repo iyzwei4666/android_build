@@ -181,7 +181,6 @@
         android:id="@+id/route_plan_float_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space16"
         android:clickable="true"
         android:src="@drawable/icon_route_btn"
         android:visibility="gone"
