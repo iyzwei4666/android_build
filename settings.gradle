@@ -3,4 +3,6 @@ include   ':tastytoast'
 include   ':sample'
 include   ':indexablelistview'
 include   ':smsdel'
+include   ':amap'
+include   ':bottomsheet'
 
