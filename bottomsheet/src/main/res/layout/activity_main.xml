@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.myapplication.MainActivity">
 
 
     <RelativeLayout
@@ -14,14 +15,12 @@
         android:visibility="visible"
         app:layout_behavior="@string/TopLayout_Behavior">
 
-        <android.support.v7.widget.SearchView
-            android:background="@color/colorPrimary"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            app:iconifiedByDefault="false"
-            app:queryHint="@string/search_hint" />
-
+            android:background="@color/colorPrimary"
+            android:text="搜索" />
 
     </RelativeLayout>
 
@@ -32,7 +31,8 @@
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
         android:orientation="vertical"
-        app:behavior_hideable="false"
+        app:anchorPoint="300dp"
+        app:behavior_hideable="true"
         app:behavior_peekHeight="80dp"
         app:layout_behavior="@string/NoAnchor_BottomSheet_Behavior">
 
@@ -43,5 +43,43 @@
 
     </android.support.v4.widget.NestedScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="详情" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="导航" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="内部图" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="生产台帐" />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -6,5 +6,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:text="底部菜单"/>
+    android:text="设备详情"/>
 </RelativeLayout>
