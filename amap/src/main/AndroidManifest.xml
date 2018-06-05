@@ -2,14 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.map">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -18,16 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.orange.amaplike.MainActivity">
-
-        </activity>
-
+        <activity android:name="com.orange.amaplike.MainActivity"></activity>
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="45f3b71ff61034cca229895d7ce1b35e" />
-        <!--定位需要服务-->
-        <service android:name="com.amap.api.location.APSService"></service>
+        <!-- 定位需要服务 -->
+        <service android:name="com.amap.api.location.APSService" />
 
         <activity
             android:name="com.orange.amaplike.RoutePlanActivity"
@@ -36,17 +31,15 @@
             android:windowSoftInputMode="stateHidden|stateUnchanged">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name="com.orange.amaplike.pickpoi.PoiSearchActivity" />
         <activity android:name="com.orange.amaplike.pickpoi.SelectPoiFromMapActivity" />
         <activity
             android:name="com.orange.amaplike.busresult.BusRouteResultActivity"
             android:theme="@style/NoActionBarTheme" />
-
     </application>
 
 </manifest>
