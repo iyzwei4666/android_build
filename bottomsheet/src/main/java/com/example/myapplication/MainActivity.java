@@ -114,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
                 Log.d("bottomsheet-", "slideOffset:"+slideOffset);
+                if (slideOffset > 0.6){
+                    topBar.setVisibility(View.VISIBLE);
+                }else {
+                    topBar.setVisibility(View.GONE);
+                }
                 mOffset = slideOffset;
                 topLayout.animate().translationY(-300 * (  slideOffset ));
             }
