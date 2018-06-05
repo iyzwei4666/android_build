@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@color/colorPrimary"
+            android:padding="10dp"
             android:text="搜索" />
 
     </RelativeLayout>
@@ -32,9 +33,9 @@
         android:background="@color/colorAccent"
         android:orientation="vertical"
         app:anchorPoint="300dp"
-        app:behavior_hideable="true"
-        app:behavior_peekHeight="80dp"
-        app:layout_behavior="@string/NoAnchor_BottomSheet_Behavior">
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="150dp"
+        app:layout_behavior="@string/Anchor_BottomSheet_Behavior">
 
         <include
             layout="@layout/layout_bottomsheet"
@@ -44,12 +45,14 @@
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
+        android:id="@+id/bottom_sheet_menu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary">
 
         <TextView
+            android:id="@+id/bottom_sheet_menu_detail_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -58,6 +61,7 @@
             android:text="详情" />
 
         <TextView
+            android:id="@+id/bottom_sheet_menu_navi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -66,6 +70,7 @@
             android:text="导航" />
 
         <TextView
+            android:id="@+id/bottom_sheet_menu_internal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -74,6 +79,7 @@
             android:text="内部图" />
 
         <TextView
+            android:id="@+id/bottom_sheet_menu_production_ledger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -82,4 +88,26 @@
             android:text="生产台帐" />
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="返回" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="反馈" />
+
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
