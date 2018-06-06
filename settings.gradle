@@ -5,4 +5,5 @@ include   ':indexablelistview'
 include   ':smsdel'
 include   ':amap'
 include   ':bottomsheet'
+include   ':collapse'
 

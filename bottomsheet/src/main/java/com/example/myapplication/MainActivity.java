@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
     TextView bottomSheetMenuProductionLedger;
     @BindView(R.id.top_bar)
     RelativeLayout topBar;
+    @BindView(R.id.layout_bottomsheet_shrank)
+    LinearLayout layoutBottomsheetShrank;
+    @BindView(R.id.layout_bottomsheet_opened)
+    LinearLayout layoutBottomsheetOpened;
+    @BindView(R.id.layout_bottomsheet_picture)
+    RelativeLayout layoutBottomsheetPicture;
     private AnchorBottomSheetBehavior mBehavior;
     private int mHeight = 150;
     private float mOffset = 0.0f;
@@ -109,18 +115,36 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 
+
+                if (newState != AnchorBottomSheetBehavior.STATE_COLLAPSED && layoutBottomsheetShrank.getVisibility() == View.VISIBLE) {
+                    // 没有折叠且bottom_sheet_tv可见的状态下-------即滑动状态
+                    layoutBottomsheetShrank.setVisibility(View.GONE);
+                    layoutBottomsheetOpened.setVisibility(View.VISIBLE);
+                } else if (newState == AnchorBottomSheetBehavior.STATE_COLLAPSED && layoutBottomsheetShrank.getVisibility() == View.GONE) {
+                    // 折叠状态下
+                    layoutBottomsheetShrank.setVisibility(View.VISIBLE);
+                    layoutBottomsheetOpened.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                Log.d("bottomsheet-", "slideOffset:"+slideOffset);
-                if (slideOffset > 0.6){
+                Log.d("bottomsheet-", "slideOffset:" + slideOffset);
+                if (slideOffset > 0.6) {
                     topBar.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     topBar.setVisibility(View.GONE);
                 }
                 mOffset = slideOffset;
-                topLayout.animate().translationY(-300 * (  slideOffset ));
+                topLayout.animate().translationY(-300 * (slideOffset));
+
+                if(bottomSheet.getTop() < 2 * layoutBottomsheetPicture.getHeight()){
+                    layoutBottomsheetPicture.setVisibility(View.VISIBLE);
+                    layoutBottomsheetPicture.setAlpha(slideOffset);
+                    layoutBottomsheetPicture.setTranslationY(bottomSheet.getTop()-2*layoutBottomsheetPicture.getHeight());
+                } else{
+                    layoutBottomsheetPicture.setVisibility(View.INVISIBLE);
+                }
             }
         });
         mBehavior.setState(AnchorBottomSheetBehavior.STATE_COLLAPSED);
