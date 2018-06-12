@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/layout_bottomsheet_shrank"
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
-        android:gravity="center_horizontal"
-        android:text="设备详情" />
-    <TextView
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center_horizontal"
+            android:text="设备详情shrank" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/layout_bottomsheet_shrank"
+        android:id="@+id/layout_bottomsheet_opened"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
-        android:text="到底了" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:gravity="center_horizontal"
+            android:text="设备详情opened" />
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-</LinearLayout>
+</RelativeLayout>

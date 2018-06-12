@@ -91,8 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     design_bottom_sheet_bar.setVisibility(View.VISIBLE);
                     design_bottom_sheet_bar.setAlpha(slideOffset);
                     design_bottom_sheet_bar.setTranslationY(bottomSheet.getTop()-2*design_bottom_sheet_bar.getHeight());
-                }
-                else{
+                } else{
                     design_bottom_sheet_bar.setVisibility(View.INVISIBLE);
                 }
             }

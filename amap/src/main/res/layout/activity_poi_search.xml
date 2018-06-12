@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_normal_gray"
     android:orientation="vertical"
-    tools:context="pickpoi.PoiSearchActivity">
+    tools:context="com.orange.amaplike.pickpoi.PoiSearchActivity">
 
 
     <LinearLayout

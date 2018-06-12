@@ -25,6 +25,30 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/layout_bottomsheet_picture"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:visibility="invisible"
+        app:layout_anchor="@+id/bottom_sheet"
+        app:layout_anchorGravity="top">
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="照片的容器"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/bottom_sheet"

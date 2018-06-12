@@ -18,7 +18,7 @@
             android:layout_width="35dp"
             android:layout_height="@dimen/space04"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/space08"
+            android:layout_marginTop="8dp"
             android:background="@drawable/shape_bg_gray"
             />
 
