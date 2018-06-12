@@ -3,8 +3,10 @@ package com.example.myapplication;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -12,6 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.behavior.AnchorBottomSheetBehavior;
+import com.yinglan.scrolllayout.ScrollLayout;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         context = this;
+
+        initGirlUrl();
+        initView();
+
         topLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,5 +133,105 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mBehavior.setState(AnchorBottomSheetBehavior.STATE_COLLAPSED);
+    }
+
+
+
+    private ScrollLayout mScrollLayout;
+    private ArrayList<Address> mAllAddressList;
+    private TextView mGirlDesText;
+    private Toolbar toolbar;
+
+    private MarkerAdapter.OnClickItemListenerImpl mOnClickItemListener = new MarkerAdapter.OnClickItemListenerImpl() {
+        @Override
+        public void onClickItem(View item, int position) {
+            if (mScrollLayout.getCurrentStatus() == ScrollLayout.Status.OPENED) {
+//                mScrollLayout.scrollToClose();
+            }
+        }
+    };
+
+    private ScrollLayout.OnScrollChangedListener mOnScrollChangedListener = new ScrollLayout.OnScrollChangedListener() {
+        @Override
+        public void onScrollProgressChanged(float currentProgress) {
+            if(currentProgress >= 0) {
+                float precent = 255 * currentProgress;
+                if (precent > 255) {
+                    precent = 255;
+                } else if (precent < 0) {
+                    precent = 0;
+                }
+                mScrollLayout.getBackground().setAlpha(255 - (int) precent);
+                toolbar.getBackground().setAlpha(255 - (int) precent);
+            }
+        }
+
+        @Override
+        public void onScrollFinished(ScrollLayout.Status currentStatus) {
+            if (currentStatus.equals(ScrollLayout.Status.EXIT)) {
+
+            }
+        }
+
+        @Override
+        public void onChildScroll(int top) {
+        }
+    };
+
+    private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            mGirlDesText.setText(mAllAddressList.get(position).getDesContent());
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
+
+
+
+    private void initView() {
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        mGirlDesText = (TextView) findViewById(R.id.text_view);
+        mScrollLayout = (ScrollLayout) findViewById(R.id.scroll_down_layout);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.getBackground().setAlpha(0);
+        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+        toolbar.setTitle("ScrollLayout");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        mScrollLayout.setOnScrollChangedListener(mOnScrollChangedListener);
+        mScrollLayout.getBackground().setAlpha(0);
+
+        MarkerAdapter mainPagerAdapter = new MarkerAdapter(this);
+        mainPagerAdapter.setOnClickItemListener(mOnClickItemListener);
+        viewPager.setAdapter(mainPagerAdapter);
+        viewPager.setOnPageChangeListener(mOnPageChangeListener);
+        mainPagerAdapter.initViewUrl(mAllAddressList);
+        mGirlDesText.setText(mAllAddressList.get(0).getDesContent());
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    private void initGirlUrl() {
+        mAllAddressList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Address address = new Address();
+            address.setImageUrl(Constant.ImageUrl[i]);
+            address.setDesContent(Constant.DesContent[i]);
+            mAllAddressList.add(address);
+        }
     }
 }

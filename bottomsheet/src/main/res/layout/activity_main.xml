@@ -111,4 +111,57 @@
             android:text="反馈" />
 
     </RelativeLayout>
+
+
+
+
+
+    <com.yinglan.scrolllayout.ScrollLayout
+        android:id="@+id/scroll_down_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        app:allowHorizontalScroll="true"
+        app:exitOffset="0dp"
+        app:isSupportExit="false"
+        app:maxOffset="120dp"
+        app:minOffset="50dp"
+        app:mode="open">
+
+        <com.yinglan.scrolllayout.content.ContentScrollView
+            android:id="@+id/content_scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"></android.support.v4.view.ViewPager>
+
+                <TextView
+                    android:id="@+id/text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/view_pager"
+                    android:padding="16dp" />
+
+            </RelativeLayout>
+
+        </com.yinglan.scrolllayout.content.ContentScrollView>
+
+    </com.yinglan.scrolllayout.ScrollLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:titleTextColor="@android:color/white" />
 </android.support.design.widget.CoordinatorLayout>
