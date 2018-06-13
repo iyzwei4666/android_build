@@ -241,12 +241,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setOnPageChangeListener(mOnPageChangeListener);
         mainPagerAdapter.initViewUrl(mAllAddressList);
         mGirlDesText.setText(mAllAddressList.get(0).getDesContent());
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
     }
 
     private void initGirlUrl() {
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             Address address = new Address();
             address.setImageUrl(Constant.ImageUrl[i]);
-            address.setDesContent(Constant.DesContent[i]);
+            address.setDesContent(Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]);
             mAllAddressList.add(address);
         }
     }
