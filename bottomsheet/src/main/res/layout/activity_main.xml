@@ -35,16 +35,10 @@
         app:layout_anchor="@+id/bottom_sheet"
         app:layout_anchorGravity="top">
 
-        <ImageView
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="23dp"
-            android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:text="照片的容器"
             android:textColor="#ffffff" />
@@ -56,10 +50,9 @@
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
         android:orientation="vertical"
-        app:anchorPoint="300dp"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="150dp"
-        app:layout_behavior="@string/Anchor_BottomSheet_Behavior">
+        app:behavior_peekHeight="350dp"
+        app:layout_behavior="@string/BottomSheet_Behavior">
 
         <include
             layout="@layout/layout_bottomsheet"

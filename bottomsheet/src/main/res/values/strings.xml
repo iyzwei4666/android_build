@@ -4,6 +4,9 @@
 
     <string name="Anchor_BottomSheet_Behavior">com.example.myapplication.behavior.AnchorBottomSheetBehavior</string>
     <string name="NoAnchor_BottomSheet_Behavior">com.example.myapplication.behavior.NoAnchorBottomSheetBehavior</string>
+    <string name="BottomSheet_Behavior">com.example.myapplication.behavior.BottomSheetBehavior</string>
     <string name="TopLayout_Behavior">com.example.myapplication.behavior.TopLayoutBehavior</string>
     <string name="FAB_Behavior">com.example.myapplication.behavior.FloatActionBtnBehavior</string>
+
+
 </resources>
