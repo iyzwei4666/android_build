@@ -1,11 +1,11 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,12 +17,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Created by cjj on 2016/2/29.
+ */
 public class BeautifulBottomSheetActivity extends AppCompatActivity {
     public BottomSheetBehavior behavior;
     public RecyclerView recyclerView;
@@ -36,7 +37,7 @@ public class BeautifulBottomSheetActivity extends AppCompatActivity {
         ns_view = findViewById(R.id.ns);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         SimpleStringRecyclerViewAdapter simpleStringRecyclerViewAdapter = new SimpleStringRecyclerViewAdapter(this);
 
@@ -73,6 +74,7 @@ public class BeautifulBottomSheetActivity extends AppCompatActivity {
 
 
     }
+
 
 
 
@@ -145,4 +147,6 @@ public class BeautifulBottomSheetActivity extends AppCompatActivity {
             return 4;
         }
     }
+
 }
+
