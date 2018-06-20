@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         params.height = height;
         mBehavior.setAnchorPoint(height);
         mBehavior.addBottomSheetCallback(new AnchorBottomSheetBehavior.BottomSheetCallback() {
-            private int oldState = 0;
+            private int oldState = 5;
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
 
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case AnchorBottomSheetBehavior.STATE_DRAGGING:
                         Log.d("bottomsheet-", "STATE_DRAGGING");
+
                         break;
                     case AnchorBottomSheetBehavior.STATE_EXPANDED:
                         Log.d("bottomsheet-", "STATE_EXPANDED");
@@ -108,9 +109,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case AnchorBottomSheetBehavior.STATE_HIDDEN:
                         Log.d("bottomsheet-", "STATE_HIDDEN");
+                        oldState = newState;
                         break;
                     default:
                         Log.d("bottomsheet-", "STATE_SETTLING");
+
                         break;
                 }
 
@@ -142,8 +145,10 @@ public class MainActivity extends AppCompatActivity {
                     topBar.setVisibility(View.GONE);
                 }
                 mOffset = slideOffset;
-                if (oldState < AnchorBottomSheetBehavior.STATE_COLLAPSED )
+                if (slideOffset >= 0 ){
+//                    Log.d("BottomSheetBehavior-", "oldState:" + oldState);
                 topLayout.animate().translationY(-500 * (slideOffset));
+                }
 
                 if( bottomSheet.getTop() < 2 * layoutBottomsheetPicture.getHeight()){
                     layoutBottomsheetPicture.setVisibility(View.VISIBLE);
