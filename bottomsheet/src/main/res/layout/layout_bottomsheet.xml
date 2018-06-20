@@ -4,6 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <LinearLayout
+        android:id="@+id/layout_bottomsheet_opened"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:gravity="center_horizontal"
+            android:text="设备详情1" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_bottomsheet_shrank"
         android:layout_width="match_parent"
@@ -14,24 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="center_horizontal"
-            android:text="设备详情shrank" />
+            android:text="设备详情2" />
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_below="@+id/layout_bottomsheet_shrank"
-        android:id="@+id/layout_bottomsheet_opened"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1000dp"
-            android:gravity="center_horizontal"
-            android:text="设备详情opened" />
-    </LinearLayout>
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="50dp" />
