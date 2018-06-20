@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,14 +29,10 @@ public class MainActivity extends AppCompatActivity {
     NestedScrollView bottomSheet;
     @BindView(R.id.bottom_sheet_menu)
     LinearLayout bottomSheetMenu;
-    @BindView(R.id.bottom_sheet_menu_detail_map)
-    TextView bottomSheetMenuDetailMap;
-    @BindView(R.id.bottom_sheet_menu_navi)
-    TextView bottomSheetMenuNavi;
-    @BindView(R.id.bottom_sheet_menu_internal)
-    TextView bottomSheetMenuInternal;
-    @BindView(R.id.bottom_sheet_menu_production_ledger)
-    TextView bottomSheetMenuProductionLedger;
+
+    @BindView(R.id.bottom_sheet_menu_more)
+    TextView bottomSheetMenuMore;
+
     @BindView(R.id.top_bar)
     RelativeLayout topBar;
     @BindView(R.id.layout_bottomsheet_shrank)
@@ -57,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         context = this;
 
+/*
         initGirlUrl();
         initView();
+*/
 
         topLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,35 +74,29 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        bottomSheetMenuDetailMap.setOnClickListener(new View.OnClickListener() {
+        bottomSheetMenuMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mBehavior.getState() == AnchorBottomSheetBehavior.STATE_COLLAPSED) {
-                    mBehavior.setState(AnchorBottomSheetBehavior.STATE_ANCHOR_POINT);
-                } else {
                     mBehavior.setState(AnchorBottomSheetBehavior.STATE_COLLAPSED);
-                }
             }
         });
         mBehavior = AnchorBottomSheetBehavior.from(bottomSheet);
         int height = ScreenUtil.getScreenHeight(MainActivity.this) / 3;
+        ViewGroup.LayoutParams params = layoutBottomsheetPicture.getLayoutParams();
+        params.height = height;
         mBehavior.setAnchorPoint(height);
         mBehavior.addBottomSheetCallback(new AnchorBottomSheetBehavior.BottomSheetCallback() {
             private int oldState = 0;
-
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
 
                 switch (newState) {
                     case AnchorBottomSheetBehavior.STATE_COLLAPSED:
                         Log.d("bottomsheet-", "STATE_COLLAPSED");
-                        bottomSheetMenuDetailMap.setText("详情");
                         oldState = newState;
                         break;
                     case AnchorBottomSheetBehavior.STATE_DRAGGING:
                         Log.d("bottomsheet-", "STATE_DRAGGING");
-                        if (oldState == AnchorBottomSheetBehavior.STATE_COLLAPSED)
-                            bottomSheetMenuDetailMap.setText("地图");
                         break;
                     case AnchorBottomSheetBehavior.STATE_EXPANDED:
                         Log.d("bottomsheet-", "STATE_EXPANDED");
@@ -111,19 +104,23 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case AnchorBottomSheetBehavior.STATE_ANCHOR_POINT:
                         Log.d("bottomsheet-", "STATE_ANCHOR_POINT");
-                        bottomSheetMenuDetailMap.setText("地图");
                         oldState = newState;
                         break;
                     case AnchorBottomSheetBehavior.STATE_HIDDEN:
                         Log.d("bottomsheet-", "STATE_HIDDEN");
-                        bottomSheetMenuDetailMap.setText("详情");
                         break;
                     default:
                         Log.d("bottomsheet-", "STATE_SETTLING");
-
                         break;
                 }
 
+
+
+                if (newState == AnchorBottomSheetBehavior.STATE_HIDDEN ){
+                    bottomSheetMenu.setVisibility(View.VISIBLE);
+                }else {
+                    bottomSheetMenu.setVisibility(View.GONE);
+                }
 
                 if (newState != AnchorBottomSheetBehavior.STATE_COLLAPSED && layoutBottomsheetShrank.getVisibility() == View.VISIBLE) {
                     // 没有折叠且bottom_sheet_tv可见的状态下-------即滑动状态
@@ -145,9 +142,10 @@ public class MainActivity extends AppCompatActivity {
                     topBar.setVisibility(View.GONE);
                 }
                 mOffset = slideOffset;
-                topLayout.animate().translationY(-300 * (slideOffset));
+                if (oldState < AnchorBottomSheetBehavior.STATE_COLLAPSED )
+                topLayout.animate().translationY(-500 * (slideOffset));
 
-                if(bottomSheet.getTop() < 2 * layoutBottomsheetPicture.getHeight()){
+                if( bottomSheet.getTop() < 2 * layoutBottomsheetPicture.getHeight()){
                     layoutBottomsheetPicture.setVisibility(View.VISIBLE);
                     layoutBottomsheetPicture.setAlpha(slideOffset);
                     layoutBottomsheetPicture.setTranslationY(bottomSheet.getTop()-2*layoutBottomsheetPicture.getHeight());
@@ -159,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         mBehavior.setState(AnchorBottomSheetBehavior.STATE_COLLAPSED);
     }
 
-
+/*
 
     private ScrollLayout mScrollLayout;
     private ArrayList<Address> mAllAddressList;
@@ -257,5 +255,5 @@ public class MainActivity extends AppCompatActivity {
             address.setDesContent(Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]+Constant.DesContent[i]);
             mAllAddressList.add(address);
         }
-    }
+    }*/
 }

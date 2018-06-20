@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="1000dp"
             android:gravity="center_horizontal"
-            android:text="设备详情1" />
+            android:text="设备详情2" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_bottomsheet_shrank"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="center_horizontal"
-            android:text="设备详情2" />
+            android:text="设备详情1" />
 
 
     </LinearLayout>

@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
+            android:gravity="center"
             android:text="照片的容器"
             android:textColor="#ffffff" />
     </RelativeLayout>
@@ -51,7 +51,7 @@
         android:background="@color/colorAccent"
         android:orientation="vertical"
         app:anchorPoint="300dp"
-        app:behavior_hideable="false"
+        app:behavior_hideable="true"
         app:behavior_peekHeight="150dp"
         app:layout_behavior="@string/Anchor_BottomSheet_Behavior">
 
@@ -63,47 +63,24 @@
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/bottom_sheet_menu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/bottom_sheet_menu_detail_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="详情" />
+
 
         <TextView
-            android:id="@+id/bottom_sheet_menu_navi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/bottom_sheet_menu_more"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="导航" />
+            android:text="点击查看更多" />
 
-        <TextView
-            android:id="@+id/bottom_sheet_menu_internal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="内部图" />
-
-        <TextView
-            android:id="@+id/bottom_sheet_menu_production_ledger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="生产台帐" />
     </LinearLayout>
 
     <RelativeLayout
@@ -130,55 +107,4 @@
 
     </RelativeLayout>
 
-
-    <com.yinglan.scrolllayout.ScrollLayout
-        android:id="@+id/scroll_down_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000"
-        android:visibility="gone"
-        app:allowHorizontalScroll="true"
-        app:exitOffset="0dp"
-        app:isSupportExit="false"
-        app:maxOffset="120dp"
-        app:minOffset="50dp"
-        app:mode="open">
-
-        <com.yinglan.scrolllayout.content.ContentScrollView
-            android:id="@+id/content_scroll_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="260dp"></android.support.v4.view.ViewPager>
-
-                <TextView
-                    android:id="@+id/text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/view_pager"
-                    android:padding="16dp" />
-
-            </RelativeLayout>
-
-        </com.yinglan.scrolllayout.content.ContentScrollView>
-
-    </com.yinglan.scrolllayout.ScrollLayout>
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:titleTextColor="@android:color/white"
-        android:visibility="gone" />
 </android.support.design.widget.CoordinatorLayout>
