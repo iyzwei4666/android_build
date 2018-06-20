@@ -462,8 +462,13 @@ public class AnchorBottomSheetBehavior<V extends View> extends CoordinatorLayout
                 }
                 else {
                     // We are already collapsed
-                    top = mMaxOffset;
-                    targetState = STATE_COLLAPSED;
+                    if (mHideable){
+                        top = mParentHeight;
+                        targetState = STATE_HIDDEN;
+                    }else {
+                        top = mMaxOffset;
+                        targetState = STATE_COLLAPSED;
+                    }
                 }
             }
             // Not flinging, just settle to the nearest state

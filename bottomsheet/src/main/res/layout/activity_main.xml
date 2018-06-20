@@ -51,7 +51,7 @@
         android:background="@color/colorAccent"
         android:orientation="vertical"
         app:anchorPoint="300dp"
-        app:behavior_hideable="true"
+        app:behavior_hideable="false"
         app:behavior_peekHeight="150dp"
         app:layout_behavior="@string/Anchor_BottomSheet_Behavior">
 
