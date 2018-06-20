@@ -798,7 +798,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
         CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) params)
                 .getBehavior();
-        if (!(behavior instanceof android.support.design.widget.BottomSheetBehavior)) {
+        if (!(behavior instanceof  BottomSheetBehavior)) {
             throw new IllegalArgumentException(
                     "The view is not associated with BottomSheetBehavior");
         }
