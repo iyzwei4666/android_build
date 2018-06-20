@@ -50,9 +50,10 @@
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
         android:orientation="vertical"
+        app:anchorPoint="300dp"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="350dp"
-        app:layout_behavior="@string/BottomSheet_Behavior">
+        app:behavior_peekHeight="150dp"
+        app:layout_behavior="@string/Anchor_BottomSheet_Behavior">
 
         <include
             layout="@layout/layout_bottomsheet"
@@ -106,13 +107,13 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:visibility="gone"
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="top"
         android:layout_margin="10dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_scrollFlags="scroll|enterAlways">
 
         <TextView
@@ -130,15 +131,12 @@
     </RelativeLayout>
 
 
-
-
-
     <com.yinglan.scrolllayout.ScrollLayout
-        android:visibility="gone"
         android:id="@+id/scroll_down_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#000000"
+        android:visibility="gone"
         app:allowHorizontalScroll="true"
         app:exitOffset="0dp"
         app:isSupportExit="false"
@@ -175,12 +173,12 @@
 
     </com.yinglan.scrolllayout.ScrollLayout>
 
-  <android.support.v7.widget.Toolbar
-        android:visibility="gone"
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:titleTextColor="@android:color/white" />
+        android:titleTextColor="@android:color/white"
+        android:visibility="gone" />
 </android.support.design.widget.CoordinatorLayout>
