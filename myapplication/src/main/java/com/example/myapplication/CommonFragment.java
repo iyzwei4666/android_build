@@ -30,6 +30,7 @@ public class CommonFragment extends Fragment implements  View.OnClickListener  {
         add(new ActivityBean("mytoast","com.view.mytoast.MyToastActivity"));
         add(new ActivityBean("translateAnim","com.view.animation.TranslateAnimationActivity"));
         add(new ActivityBean("leida","com.view.leida.LeidaActivity"));
+        add(new ActivityBean("圆角按钮背景选择","com.view.shapebg.ShapeBgActivity"));
     }
     };
     private FrameAdapter notesAdapter;
