@@ -226,9 +226,8 @@ public class MainActivity extends AppCompatActivity {
         mGirlDesText = (TextView) findViewById(R.id.text_view);
         mScrollLayout = (ScrollLayout) findViewById(R.id.scroll_down_layout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.getBackground().setAlpha(0);
-        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
-        toolbar.setTitle("ScrollLayout");
+//        toolbar.getBackground().setAlpha(0);
+//        toolbar.setTitle("ScrollLayout");
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
 
