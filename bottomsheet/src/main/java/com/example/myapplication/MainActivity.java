@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         context = this;
 
         initGirlUrl();
-        initView();
+
 
         topLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,32 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void initView() {
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        mGirlDesText = (TextView) findViewById(R.id.text_view);
-        mScrollLayout = (ScrollLayout) findViewById(R.id.scroll_down_layout);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.getBackground().setAlpha(0);
-//        toolbar.setTitle("ScrollLayout");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
 
-        mScrollLayout.setOnScrollChangedListener(mOnScrollChangedListener);
-        mScrollLayout.getBackground().setAlpha(0);
-
-        MarkerAdapter mainPagerAdapter = new MarkerAdapter(this);
-        mainPagerAdapter.setOnClickItemListener(mOnClickItemListener);
-        viewPager.setAdapter(mainPagerAdapter);
-        viewPager.setOnPageChangeListener(mOnPageChangeListener);
-        mainPagerAdapter.initViewUrl(mAllAddressList);
-        mGirlDesText.setText(mAllAddressList.get(0).getDesContent());
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
-    }
 
     private void initGirlUrl() {
         mAllAddressList = new ArrayList<>();

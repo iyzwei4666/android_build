@@ -6,5 +6,6 @@ include   ':smsdel'
 include   ':amap'
 include   ':bottomsheet'
 include   ':scrolllayout'
+include   ':multiimageviewlayout'
 //include   ':scrolllayoutapp'
 
