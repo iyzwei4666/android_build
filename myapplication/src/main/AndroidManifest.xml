@@ -31,7 +31,8 @@
             android:name="com.view.leida.LeidaActivity"
             android:label="@string/title_activity_leida"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.view.shapebg.ShapeBgActivity"></activity>
+        <activity android:name="com.view.shapebg.ShapeBgActivity" />
+        <activity android:name="com.view.wave.WaveActivity"></activity>
     </application>
 
 </manifest>
